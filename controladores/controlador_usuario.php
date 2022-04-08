@@ -60,5 +60,24 @@ class Controlador {
         }
         include_once("vistas/usuario/registro.php");
     }
+
+    function contacto() {
+        if(isset($_POST['email'])) {
+            $mail = $_POST['email'];
+
+            $mailblacklist = Usuarios::baneado($mail);
+            if($mailblacklist != null) {
+                http_response_code(404);
+                //header("Location./?controlador=usuario&accion=error");
+            } else {
+                header("Location:./?controlador=usuario&accion=inicio");
+            }
+        }
+        include_once("vistas/usuario/contacto.php");
+    }
+
+    function error() {
+        include_once("vistas/usuario/error.php");
+    }
 }
 ?>

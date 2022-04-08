@@ -16,6 +16,7 @@
   <nav class="nav bg-light">
   <a class="nav-link" href="?controlador=usuario&accion=inicio">Inicio</a>
       <a class="nav-link active" href="?controlador=tienda&accion=productos">Productos</a>
+      <a class="nav-link" href="?controlador=usuario&accion=contacto">Contacto</a>
     <?php if ($_SESSION['nombre'] == NULL) { ?>
       <a class="nav-link" href="?controlador=usuario&accion=login">Login</a>
       <a class="nav-link" href="?controlador=usuario&accion=registro">Registrarse</a>

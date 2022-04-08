@@ -25,6 +25,16 @@ class Usuarios {
 
         return $usuario;
     }
+
+    public static function baneado($mail) {
+        $connBD = BD::crearInstancia();
+        $stmt = $connBD->prepare("SELECT * FROM blacklist WHERE mail = :mail");
+        $stmt->bindParam(':mail', $mail);
+        $stmt->execute();
+        $mail = $stmt->fetch();
+
+        return $mail;
+    }
     
 }
 ?>
